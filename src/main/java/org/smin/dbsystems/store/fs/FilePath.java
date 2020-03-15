@@ -12,7 +12,7 @@ public abstract class FilePath {
 
     static{
         FilePath def = null;
-        ConcurrentHashMap<String, FilePath> map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, FilePath> map = new ConcurrentHashMap();
 
         defaultProvider = def;
         providers = map;

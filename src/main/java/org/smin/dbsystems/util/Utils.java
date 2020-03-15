@@ -10,7 +10,7 @@ public class Utils {
 
     public static final long[] EMPTY_LONG_ARRAY = {};
 
-    private static final HashMap<String, byte[]> RESOURCES = new HashMap<>();
+    private static final HashMap<String, byte[]> RESOURCES = new HashMap();
 
     private Utils(){
         // utility class

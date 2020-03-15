@@ -9,8 +9,8 @@ import java.lang.ref.ReferenceQueue;
 import java.util.HashMap;
 
 public class TempFileDeleter {
-    private final ReferenceQueue<Object> queue = new ReferenceQueue<>();
-    private final HashMap<PhantomReference<?>, Object> refMap = new HashMap<>();
+    private final ReferenceQueue<Object> queue = new ReferenceQueue();
+    private final HashMap<PhantomReference<?>, Object> refMap = new HashMap();
 
     private TempFileDeleter(){
         // utility class
@@ -27,7 +27,7 @@ public class TempFileDeleter {
         IOUtils.trace("TempfileDeleter.addFile",
                 resource instanceof String ? (String)resource : "-",
                 monitor);
-        PhantomReference<?> ref = new PhantomReference<>(monitor, queue);
+        PhantomReference<?> ref = new PhantomReference(monitor, queue);
         refMap.put(ref, resource);
         deleteUnused();
         return ref;

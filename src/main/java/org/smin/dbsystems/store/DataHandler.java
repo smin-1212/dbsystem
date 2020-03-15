@@ -1,6 +1,9 @@
 package main.java.org.smin.dbsystems.store;
 
 import main.java.org.smin.dbsystems.message.DbException;
+import main.java.org.smin.dbsystems.util.TempFileDeleter;
+
+import java.lang.ref.Reference;
 
 public interface DataHandler {
 
@@ -13,4 +16,5 @@ public interface DataHandler {
     void checkWritingAllowed() throws DbException;
 
 
+    TempFileDeleter getTempFileDeleter();
 }

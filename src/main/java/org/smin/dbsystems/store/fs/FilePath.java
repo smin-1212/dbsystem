@@ -37,4 +37,15 @@ public abstract class FilePath {
     public abstract boolean exists();
 
     public abstract FileChannel open(String mode) throws IOException;
+
+    public abstract boolean canWrite() ;
+
+    public abstract boolean isDirectory();
+
+    public abstract void createDircetory();
+
+    public abstract FilePath getParent();
+
+    public abstract void delete();
+
 }

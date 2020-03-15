@@ -1,5 +1,6 @@
 package main.java.org.smin.dbsystems.util;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Utils {
@@ -78,5 +79,18 @@ public class Utils {
             throw new IllegalArgumentException(value);
         }
         return defaultValue;
+    }
+
+    public static byte[] copyBytes(byte[] bytes, int len) {
+        if(len == 0){
+            return EMPTY_BYTES;
+        }
+        try{
+            return Arrays.copyOf(bytes, len);
+        }catch (OutOfMemoryError e){
+            Error e2 = new OutOfMemoryError("Request memory : " + len);
+            e2.initCause(e);
+            throw e2;
+        }
     }
 }

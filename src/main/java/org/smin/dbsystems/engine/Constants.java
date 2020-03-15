@@ -6,5 +6,7 @@ public class Constants {
 
     public static final int ENCRYPTION_KEY_HASH_ITERATIONS = 1024;
 
+    public static final int IO_BUFFER_SIZE = 4 * 1024;
 
+    public static final int IO_BUFFER_SIZE_COMPRESS = 128 * 1024;
 }

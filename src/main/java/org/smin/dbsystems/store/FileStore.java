@@ -11,6 +11,8 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
+import static main.java.org.smin.dbsystems.util.IOUtils.trace;
+
 public class FileStore {
     /**
      * 파일 헤더 블록사이즈
@@ -144,7 +146,7 @@ public class FileStore {
         readFully(buff, off, length);
     }
 
-    private void readFully(byte[] buff, int off, int length) {
+    public void readFully(byte[] buff, int off, int length) {
         if(length < 0 || length % Constants.FILE_BLOCK_SIZE != 0){
             // TODO dbexception
         }
@@ -245,4 +247,24 @@ public class FileStore {
         }
     }
 
+    public void openFile() {
+    }
+
+    public void closeFile() throws IOException{
+        file.close();
+        file = null;
+    }
+
+    public void close() {
+        if(file != null){
+            try{
+                trace("close", name, file);
+                file.close();
+            }catch (IOException e){
+                // TODO db exception
+            }finally {
+                file = null;
+            }
+        }
+    }
 }
